@@ -1,0 +1,207 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Jost;
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar-brand img {
+    height: 60px;
+    width: auto;
+}
+
+.nav-item a {
+    color: white;
+    transition: .5s;
+}
+
+.nav-item a:hover {
+    color: #ffffff;
+}
+
+.signin a {
+    padding: 10px 5em;
+    background-color: #004b5a;
+    border-radius: 50px;
+}
+
+.signout a {
+    background-color: #004b5a;
+    border-radius: 50px;
+}
+
+.login_menu {
+    height: 20vh;
+    width: auto;
+    margin-right: 100px;
+}
+
+.drop_log {
+    height: auto;
+    width: 14em;
+}
+
+.dropdown-item:hover {
+    background-color: gray;
+    padding-left: 25px;
+}
+
+.drop_a {
+    background-color: #9b9b8f;
+    transition: .3s;
+}
+
+.drop_a:hover {
+    margin-top: 10px;
+    color: black;
+    background-color: transparent;
+}
+
+.carousel-item img {
+    height: 92vh;
+    width: 100%;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    border-radius: 10px;
+    border: 2px solid black;
+    backdrop-filter: blur(5px);
+}
+
+.carousel-caption p {
+    font-size: 20px;
+    margin: 0px;
+}
+
+.about_contant {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.about_contant p {
+    height: auto;
+    width: 80%;
+    font-size: 18px;
+
+}
+
+.card1 {
+    background: url(Images/circle-bg.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 26vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+    margin: 10px 0;
+}
+
+.two_left_image img {
+    height: 60vh;
+    width: 100%;
+}
+
+.accordion-button {
+    font-size: 25px;
+}
+
+.all_images img {
+    height: auto;
+    width: auto;
+    transition: .3s;
+    margin: 20px 0px;
+    filter: drop-shadow(0 0 5px black);
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.all_images img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.last_logo img {
+    height: 150px;
+    width: auto;
+    border-radius: 20px;
+}
+
+.footer {
+    height: auto;
+    width: 100%;
+    color: white;
+}
+
+.foot h5 {
+    text-align: center;
+}
+
+.foot li {
+    list-style: none;
+    padding-left: 10px;
+}
+
+.foot a {
+    color: white;
+    transition: .3s;
+}
+
+.foot a:hover {
+    padding-left: 10px;
+    color: #00d5ff;
+}
+
+.foot i {
+    font-size: 20px;
+    transition: .3s;
+}
+
+.dev a {
+    transition: .3s;
+}
+
+.dev a:hover {
+    padding-left: 10px;
+}
+
+.last_media_icon {
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+
+}
+
+iframe {
+    height: 250px;
+    width: 100%;
+}
+
+.all_gallery_images img {
+    height: 30vh;
+    width: auto;
+    transition: .3s;
+}
+
+.all_gallery_images img:hover {
+    transform: scale(1.125);
+    cursor: pointer;
+}
