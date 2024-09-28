@@ -1,4 +1,5 @@
 <!-- Header  -->
+<?php include("./admin/Config/functions.php"); ?>
 
 <?php include('header.php'); ?>
 
@@ -61,79 +62,36 @@
             <h1 class="text-center my-5 fw-bold">
             Our Team
             </h1>
-            <div class="col-md-4">
-                <div class="card about_card shadow my-2">
-                    <div class="card-body">
-                        <img src="images/gray-user-profile-icon-png-fP8Q1P.png" class="card-img-bottom rounded" alt="...">
-                        <div class="card_content px-2">
-                            <h3 class="card-title mt-2">Sachin Kumar</h3>
-                            <h6 class="card-subtitle mb-2 text-muted">Designated Partner of Company</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-            <div class="card about_card shadow my-2">
-                    <div class="card-body">
-                        <img src="images/gray-user-profile-icon-png-fP8Q1P.png" class="card-img-bottom rounded" alt="...">
-                        <div class="card_content px-2">
-                            <h3 class="card-title mt-2">Mohit Kumar</h3>
-                            <h6 class="card-subtitle mb-2 text-muted">
-                                Managable Partner of Company
-                            </h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-            <div class="card about_card shadow my-2">
-                    <div class="card-body">
-                        <img src="images/gray-user-profile-icon-png-fP8Q1P.png" class="card-img-bottom rounded" alt="...">
-                        <div class="card_content px-2">
-                            <h3 class="card-title mt-2">Vishal Kumar</h3>
-                            <h6 class="card-subtitle mb-2 text-muted">Accountant of Company</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <hr class="fw-bold text-danger"> 
+             <?php
+              global $db;
 
-        <div class="row">
-            <div class="col-md-4">
+              $select_team ="SELECT * FROM team ORDER BY `id` ASC";
+              $stmt =$db->query($select_team);
+
+              while($Data = $stmt->fetch()){
+                $id =$Data['id'];
+                $Name =$Data['Name'];
+                $Image =$Data['Image'];
+                $Position =$Data['Position'];
+                $date_time =$Data['Date&Time'];
+               
+             
+             ?>
+            <div class="col-md-4 mb-3">
                 <div class="card about_card shadow my-2">
                     <div class="card-body">
-                        <img src="images/gray-user-profile-icon-png-fP8Q1P.png" class="card-img-bottom rounded" alt="...">
+                        <img style="height:250px;width:400px;" src="./Upload/<?php echo htmlentities($Image)?>" class="card-img-bottom img-thumbnail rounded" alt="...">
                         <div class="card_content px-2">
-                            <h3 class="card-title mt-2">Aman Kumar</h3>
-                            <h6 class="card-subtitle mb-2 text-muted">Designated Partner of Company</h6>
+                            <h3 class="card-title mt-2"><?php echo htmlentities($Name)?></h3>
+                            <h6 class="card-subtitle mb-2 text-muted"><?php echo htmlentities($Position)?></h6>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-            <div class="card about_card shadow my-2">
-                    <div class="card-body">
-                        <img src="images/gray-user-profile-icon-png-fP8Q1P.png" class="card-img-bottom rounded" alt="...">
-                        <div class="card_content px-2">
-                            <h3 class="card-title mt-2">Shivam Kumar</h3>
-                            <h6 class="card-subtitle mb-2 text-muted">
-                                Managable Partner of Company
-                            </h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-            <div class="card about_card shadow my-2">
-                    <div class="card-body">
-                        <img src="images/gray-user-profile-icon-png-fP8Q1P.png" class="card-img-bottom rounded" alt="...">
-                        <div class="card_content px-2">
-                            <h3 class="card-title mt-2">Akash Kumar</h3>
-                            <h6 class="card-subtitle mb-2 text-muted">Accountant of Company</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          <?php }
+            ?>
+           
         </div>
     </div>
 </div>

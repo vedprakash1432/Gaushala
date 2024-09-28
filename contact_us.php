@@ -45,7 +45,7 @@ else{
     $execute=$stmt->execute();
     if($execute){
         echo "<script>alert('Thank you for connecting us Successfully')</script>";
-        ?> <script>windows.location.href="index.php"</script><?php
+        echo "<script> location.href='index.php'; </script>";
 
     }
    }
@@ -56,7 +56,7 @@ else{
 
 <div class="container-fluid">
     <div class="row">
-        <h1 class="text-center mt-3 list-group-item-primary py-5">Contact Us</h1>
+        <h1 class="text-center mt-3 list-group-item-primary py-2">Contact Us</h1>
         <hr class="my-4">
     </div>
     <div class="container">

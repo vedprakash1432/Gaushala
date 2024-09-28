@@ -9,25 +9,17 @@
 //     exit;
 // }
 
-function create_course($name,$course_desc,$bannerobj){
-    if($course_name=="" || $course_desc=="" || $bannerobj==""){
-        echo "<script>alert('Missing Anyone of the field.')</script>";
-    }else{
-        //
-        // echo $bannerobj['tmp_name'];
-        // die;
-       
-        $stmt = $this->mysqli->prepare("INSERT INTO contact_us(course_name,course_description,course_banner,date_created) VALUES(?,?,?,?)");
-        if(false == $stmt){
-            trigger_error("Error in query:".mysqli_connect_error(),E_USER_ERROR);
-        }else{
+// method to find all cows from cow table 
 
-            $cdate = date('Y-m-d');
-            $stmt->bind_param('ssss',$course_name,$course_desc,$bannername,$cdate);
-            $stmt->execute();
-            echo "<script>alert('Course Added Successfully')</script>";
-        }
-    }
+// function TotalCows(){
+//     global $db;
+//     $sql = "SELECT COUNT(*) FROM cows";
+//     $Execute = $db->query($sql);
+//     $TotalRow1 = $Execute->fetch();
+//     $TotalCows= array_shift($TotalRow1);
+//     echo $TotalCows;
+//    }
 
-}
+
+
 ?>

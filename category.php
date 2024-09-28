@@ -2,7 +2,7 @@
 <?php include("./admin/Config/functions.php"); ?>
 
 
-<!-- Photo Gallery  -->
+<!-- Cow category  -->
 
 <div class="container">
     <div class="row mb-5">
@@ -16,7 +16,7 @@
                 <hr>
                 <?php
                    global $db;
-                   $sql ="SELECT * FROM cow_category LIMIT 5";
+                   $sql ="SELECT * FROM cow_category LIMIT 9";
                    $stmt =$db->query($sql);
 
                    while ($Datarow =$stmt->fetch()){
@@ -29,9 +29,9 @@
 
                   
                  ?>
-                <div class="col-md-4">
+                <div class="col-md-4 mb-3">
                     <div class="card text-center border border-2 p-1 shadow-lg bg-light my-2 all_cow_images">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVAQlyolxYwhSUB3yt5WBmzW6HjIVhoAIUHg&s"  class="img-thumbnail" alt="">
+                        <img style="height:250px;width:350px" src="./Upload/<?php echo htmlentities($image) ?>"  class="img-thumbnail" alt="">
                        <div class="card-body">
                            <div class="row">
                             <div class="col">

@@ -3,12 +3,13 @@
 
 <?php
  if(isset($_POST['submit'])){
-    $amount =$_POST['amount'];
+    $amount =$_POST['amount']; 
     $title =$_POST['title'];
     $fname =$_POST['fname'];
     $lname =$_POST['lname'];
     $email =$_POST['email'];
     $phone =$_POST['number'];
+   
     $country =$_POST['country'];
     $state =$_POST['state'];
     $address =$_POST['address'];
@@ -33,8 +34,11 @@
     $Execute =$stmt->execute();
 
     if($Execute){  
-        echo "<script>alert('Form submited Successfully')</script>";
-         ?> <script>// windows.location.href="checkout.php"</script><?php
+        echo "<script>alert('Payment Form submited Successfully')</script>";
+        echo "<script> location.href='index.php'; </script>";
+    }else{
+        echo "<script>alert('Payment Form Not submited!!!!')</script>";
+        echo "<script> location.href='adoption&donation.php'; </script>";
     }
 
  }
@@ -688,16 +692,16 @@
                         <select class="form-select" name="amount" id="validationCustom04" required>
                             <option selected disabled value="">Select Amount</option>
                             <option value="501">501</option>
-                            <option value="501">1001</option>
-                            <option value="501">1100</option>
-                            <option value="501">2001</option>
-                            <option value="501">2100</option>
-                            <option value="501">5001</option>
-                            <option value="501">5100</option>
-                            <option value="501">10001</option>
-                            <option value="501">11000</option>
-                            <option value="501">11000</option>
-                            <option value="501">custom amount</option>
+                            <option value="1001">1001</option>
+                            <option value="1100">1100</option>
+                            <option value="2001">2001</option>
+                            <option value="2100">2100</option>
+                            <option value="5001">5001</option>
+                            <option value="5100">5100</option>
+                            <option value="10001">10001</option>
+                            <option value="11000">11000</option>
+                            <option value="11000">11000</option>
+                            <!-- <option value="501">custom amount</option> -->
                         </select>
                         <div class="invalid-feedback">
                             Please select an Amount
@@ -1457,12 +1461,12 @@
                     <div class="card text-center">
                         <div class="d-flex align-items-center p-2">
                             <div class="me-2"> <img
-                                    src="./Images/gray-user-profile-icon-png-fP8Q1P.png"
+                                    src="./Images/user.png"
                                     class="img-fluid rounded-start lazyload" alt="donor" height="100" width="100">
                             </div>
                             <div class="lh-base">
                                 <h4 class="card-title mb-0  ">
-                                   <strong><?php echo $first_name ;?> <?php echo $last_name ;?> </strong></h4>
+                                   <strong><?php echo htmlentities(ucfirst($first_name)." ".ucfirst($last_name)) ;?> </strong></h4>
                                 <p class="m-0 fs-16 fw-normal">Donated <strong> ₹
                                 <?php echo $amount ;?> </strong> </p>
                                 <p class="m-0"><small class="text-muted">

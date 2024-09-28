@@ -1,4 +1,8 @@
 <!-- Header  -->
+<?php
+//  include("./admin/Config/functions.php");
+?>
+<?php include("./admin/Config/total.php"); ?>
 
 <?php include('header.php'); ?>
 
@@ -14,7 +18,7 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="images/IMG_0949.JPG" class="d-block w-100" alt="...">
+                    <img src="images/banner1.JPG" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <p>गावो भगो गाव इन्द्रो मे अच्छान्गावः सोमस्य प्रथमस्य भक्षः ।
                             इमा या गावः स जनास इन्द्र इच्छामीद्धृदा मनसा चिदिन्द्रम् ॥५॥</p>
@@ -28,7 +32,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="images/IMG_0923.JPG" class="d-block w-100" alt="...">
+                    <img src="images/banner2.JPG" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <p>सुरूपा बहुरूपाश्च विश्वरूपाश्च मातरः।
                             गावो मामुपतिष्ठन्तामिति नित्यं प्रकीर्तयेत्॥</p>
@@ -41,7 +45,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="images/IMG_0916.JPG" class="d-block w-100" alt="...">
+                    <img src="images/banner3.JPG" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <p>यया सर्वमिदं व्याप्तं जगत् स्थावरजङ्गमम्।
                             तां धेनुं शिरसा वन्दे भूतभव्यस्य मातरम्॥</p>
@@ -87,42 +91,43 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <div class="card1">
-                    <h2>
-                        255
+                <div class="card1 text-center">
+                    <h2 class="text-center">
+                        <?php echo totalCows(); ?>
                     </h2>
-                    <p>
-                        &nbsp;&nbsp;&nbsp; Govardhan <br> ( Cows + Calf )
+                    <p class="text-center">
+                        &nbsp;&nbsp;&nbsp;S K Gaushala <br> (Cows+Calf+Ox)
                     </p>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card1">
-                    <h2>
-                        255
+                <div class="card1 text-center">
+                    <h2 class="text-center">
+                       <?php echo TotalComEvent(); ?>
+
                     </h2>
-                    <p>
-                        &nbsp;&nbsp;&nbsp; Govardhan <br> ( Cows + Calf )
+                    <p class="text-center">
+                        &nbsp;&nbsp;&nbsp; S K Gaushala <br> ( Events )
                     </p>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card1">
+                <div class="card1 text-center">
                     <h2>
-                        255
+                    <?php echo TotalDonations(); ?>
                     </h2>
                     <p>
-                        &nbsp;&nbsp;&nbsp; Govardhan <br> ( Cows + Calf )
+                        &nbsp;&nbsp;&nbsp; S K Gaushala <br> ( Donations )
                     </p>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card1">
-                    <h2>
-                        255
+            <div class="col-md-3" >
+                <div class="card1 text-center">
+                    <h2 class="text-center">
+                    <?php echo TotalAdoptions(); ?>
                     </h2>
-                    <p>
-                        &nbsp;&nbsp;&nbsp; Govardhan <br> ( Cows + Calf )
+                    <p class="text-center">
+                        &nbsp;&nbsp;&nbsp; S K Gaushala <br> ( Adoptions )
                     </p>
                 </div>
             </div>
@@ -137,7 +142,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="two_left_image mt-2">
-                        <img class="shadow rounded" src="images/IMG_0916.JPG" alt="">
+                        <img class="shadow rounded" src="images/banner3.JPG" alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -261,47 +266,76 @@
 <div class="container-fluid">
     <div class="row">
         <div class="cow_images">
-            <div class="images_head bg-primary py-2 text-light">
+            <div class="py-2 rounded border shadow list-group-item-primary">
                 <h2 class="text-center">
                      Events Photos
                 </h2>
             </div>
             <div class="all_images bg-light">
                 <div class="row mb-3">
+                    <?php 
+                       global $db;
+                       $select_photos ="SELECT * FROM photos LIMIT 8";
+                       $stmt =$db->query($select_photos);
+
+                       while($Data =$stmt->fetch()){
+                        $photo =$Data['Photos'];
+                       
+                       ?>
                     <div class="col-md-3 shadow">
-                        <img class="img-fluid img-thumbnail " src="images/IMG_0915.JPG" alt="Responsive image">
+                        <img class="img-fluid img-thumbnail " src="./Upload/<?php echo htmlentities($photo) ?>" alt="Responsive image">
                     </div>
-                    <div class="col-md-3 shadow">
-                        <img class="img-fluid img-thumbnail" src="images/IMG_0916.JPG" alt="">
-                    </div>
-                    <div class="col-md-3 shadow">
-                        <img class="img-fluid img-thumbnail" src="images/IMG_0917.JPG" alt="">
-                    </div>
-                    <div class="col-md-3 shadow">
-                        <img class="img-fluid img-thumbnail" src="images/IMG_0918.JPG" alt="">
-                    </div>
-                   
+                    <?php }?>                   
                 </div>
-                <div class="row mb-3">
-                    <div class="col-md-3 shadow">
-                        <img class="img-fluid img-thumbnail" src="images/IMG_0921.JPG" alt="">
-                    </div>
-                    <div class="col-md-3 shadow">
-                        <img class="img-fluid  img-thumbnail" src="images/IMG_0922.JPG" alt="">
-                    </div>
-                    <div class="col-md-3 shadow">
-                        <img class="img-fluid  img-thumbnail" src="images/IMG_0923.JPG" alt="">
-                    </div>
-                    <div class="col-md-3 shadow">
-                        <img class="img-fluid img-thumbnail" src="images/IMG_0924.JPG" alt="">
-                    </div>
-                    
-                </div>
+                
             </div>
             <div class="more_btn text-center">
                 <a href="photo_gallery.php" class="btn btn-primary my-2 px-5">
                     View All
                 </a>
+            </div>
+        </div>
+    </div>
+    <div class="">
+    <div class="row my-3 text-center">
+            <h2 class="p-3 rounded border shadow list-group-item-primary">Recent Donors</h2>
+            <div class="row">
+                 <?php
+                   global $db;
+                   
+                   $select ="SELECT First_Name,Last_Name,Amount,Donation_date FROM donations";
+
+                   $stmt =$db->query($select);
+                    
+                   while($Data =$stmt->fetch()){
+
+                    $first_name =$Data['First_Name'];
+                    $last_name =$Data['Last_Name'];
+                    $donation_date =$Data['Donation_date'];
+                    $amount =$Data['Amount'];
+                   
+                 ?>
+                <div class="col-md-4 mb-3 shadow">
+                    <div class="card text-center">
+                        <div class="d-flex align-items-center p-2">
+                            <div class="me-2"> <img
+                                    src="./Images/user.png"
+                                    class="img-fluid rounded-start lazyload" alt="donor" height="100" width="100">
+                            </div>
+                            <div class="lh-base">
+                                <h4 class="card-title mb-0  ">
+                                   <strong><?php echo htmlentities(ucfirst($first_name)." ".ucfirst($last_name)) ;?> </strong></h4>
+                                <p class="m-0 fs-16 fw-normal">Donated <strong> ₹
+                                <?php echo $amount ;?> </strong> </p>
+                                <p class="m-0"><small class="text-muted">
+                                <?php echo $donation_date ;?> </small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php }?>
+              
+
             </div>
         </div>
     </div>

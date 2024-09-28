@@ -57,7 +57,7 @@
     <nav class="navbar navbar-expand-lg bg-dark shadow sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand m-0 p-0" href="index.php">
-                <img class="rounded-circle" src="images/WhatsApp Image 2024-04-06 at 8.28.51 PM.jpeg" alt="">
+                <img class="rounded-circle" src="images/skg.jpeg" alt="">
             </a>
             <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -97,7 +97,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="branches.php">BRANCHES</a>
+                        <a class="nav-link" href="branches.php">BRANCH</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">

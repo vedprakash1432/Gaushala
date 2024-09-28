@@ -4,17 +4,17 @@
 <?php 
 
  if(isset($_POST['submit'])){
-     $breed =$_POST['breed'];
+     $breed    =$_POST['breed'];
      $category =$_POST['category'];
-     $batch =$_POST['batch'];
+     $batch    =$_POST['batch'];
 
-     $name =$_POST['name'];
-     $email =$_POST['email'];
-     $number =$_POST['phone'];
-     $country= $_POST['country'];
+     $name    =$_POST['name'];
+     $email   =$_POST['email'];
+     $number  =$_POST['phone'];
+     $country = $_POST['country'];
      $pincode =$_POST['pincode'];
      $address =$_POST['address'];
-     $amount =$_POST['amount'];
+     $amount  =$_POST['amount'];
 
    
     if(empty($breed)||empty($category)|| empty($name)||empty($email)||empty($country)||empty($pincode)||empty($address)){
@@ -49,13 +49,13 @@
         $execute=$stmt->execute();
        
         if($execute){
-            $_SESSION['SuccessMessage'] ="Adoption form submited Successfully";
-            // echo "<script>alert('Adoption form submited Successfully')</script>";
-            // header('location:index.php');
-
+            echo "<script>alert('Adoption form submited Successfully')</script>";
+            echo "<script> location.href='index.php'; </script>";
+            
 
         }else{
             echo "<script>alert('Adoption form not submited Successfully')</script>";
+            echo "<script> location.href='adopt.php'; </script>";
         
         }        
     }
@@ -78,7 +78,7 @@
           <?php
             global $db;
 
-            $sql ="SELECT * FROM cow_category";
+            $sql ="SELECT * FROM cows LIMIT 9";
             $stmt = $db->query($sql);
             
             while( $DataRow = $stmt->fetch()){
@@ -86,21 +86,21 @@
                 $id = $DataRow['id'];
                 $category =$DataRow['Category'];
                 $breed =$DataRow['Breed'];
-                $batch =$DataRow['Batch'];
+                $batch =$DataRow['Batch_Id'];
                 $image =$DataRow['Image'];
-                $Dob =$DataRow['DOB'];
+                $Dob =$DataRow['Cow_DOB'];
                 $age =$DataRow['Age'];
-                $amount =$DataRow['Amount'];
+                // $amount =$DataRow['Amount'];
 
           ?>
         <div class="col-md-4 mb-3">
             <div class="card text-center border border-dark border-2 p-1 shadow my-2 all_cow_images adopt_image adopt_image">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVAQlyolxYwhSUB3yt5WBmzW6HjIVhoAIUHg&s"
+                <img style="height:250px;width:350px" src="./Upload/<?php echo $image?>"
                 class="img-thumbnail" alt="">
                 <h5 class="card-title text-primary">
                     Batch_Id : <?php echo $batch; ?>
                 </h5>
-                <div class="card-body border border-warning">
+                <div class="card-body border ">
                            <div class="row">
                             <div class="col">
                             <p>Category : <span><?php echo $category ?></span></p>

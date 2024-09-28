@@ -9,7 +9,7 @@ include('header.php');
     <?php
            global $db;
            
-           $select ="SELECT * FROM events";
+           $select ="SELECT * FROM events WHERE Publish_Status=1";
            $stmt = $db->query($select);
            
            while($Data =$stmt->fetch()){
@@ -17,25 +17,25 @@ include('header.php');
                $id =$Data['id'];
                $e_name =$Data['Event_Name'];
                $e_image =$Data['Event_Image'];
-               $e_place =$Data['Event_Place'];
+               $Date =$Data['Date'];
+               $e_starttime =$Data['Event_start_time'];
+               $e_endtime =$Data['Event_end_time'];
                $e_description =$Data['Event_description'];
-               $e_startdate =$Data['Event_Start_Date'];
-               $e_enddate =$Data['Event_End_Date'];
                
                ?>
 
     <hr class="my-4">
     <div class="row bg-light mb-3 p-3 border shadow">
         <div class="col-md-4">
-            <img class="img-thumbnail m-2 border shadow-lg rounded" src="images/IMG_0958.JPG" alt="">
+            <img class="img-thumbnail m-2 border shadow-lg rounded" src="./Upload/<?php echo htmlentities($e_image)?>" alt="">
         </div>
         <div class="col-md-8">
             <h3 class="text-center"><?php echo $e_name; ?></h3>
-            <p><?php echo $e_description; ?></p>
+            <p><?php echo htmlentities(substr($e_description,0,60)) ?></p>
             <p>
-            <?php echo $e_startdate; ?> - <?php echo $e_enddate; ?>
+            Event Start/End Time : <b><?php echo $e_starttime; ?></b> --- <b><?php echo $e_endtime; ?></b>
             </p>
-            <strong><?php echo $e_place; ?> </strong>
+            <strong><?php echo $Date; ?> </strong>
         </div>
     </div>
     <?php  }?>
